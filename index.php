@@ -57,7 +57,7 @@ usort($aulas, function($a, $b) {
     <h1>Lista de Aulas</h1>
     <div class="list-group">
         <?php foreach ($aulas as $aula): ?>
-            <a href="/<?= $aula['dir'] ?>" class="list-group-item">
+            <a href="/<?= $aula['dir'].'/index.php' ?>" class="list-group-item">
                 <h4 class="list-group-item-heading"><?= $aula['nome'] ?></h4>
                 <?php if ($aula['read']): ?>
                     <p class="list-group-item-text"><?= $aula['read'] ?></p>
@@ -70,6 +70,7 @@ usort($aulas, function($a, $b) {
     <?php if(!count($aulas)): ?>
         <h1>Nenhuma aula encontrada</h1>
     <?php endif; ?>
+    <a href="aula.php" class="btn btn-primary">Criar</a>
 </div>
 
 <footer class="footer">

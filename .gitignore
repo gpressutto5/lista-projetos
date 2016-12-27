@@ -6,3 +6,9 @@
 !/js/*
 !/.gitignore
 !/index.php
+!/aula.php
+!/criar.php
+!/template
+!/template/**
+
+.DS_Store
