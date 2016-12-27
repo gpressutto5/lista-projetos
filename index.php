@@ -22,7 +22,7 @@ usort($projetos, function($a, $b) {
 ?>
 <html>
 <head>
-    <title>Lista de Aulas</title>
+    <title>Lista de Projetos</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <style>
         html {
@@ -79,7 +79,7 @@ usort($projetos, function($a, $b) {
         <?php endforeach; ?>
     </div>
     <?php if(!count($projetos)): ?>
-        <h1>Nenhuma aula encontrada</h1>
+        <h1>Nenhum projeto encontrada</h1>
     <?php endif; ?>
     <a href="projeto.php" class="btn btn-primary">Criar</a>
 </div>
