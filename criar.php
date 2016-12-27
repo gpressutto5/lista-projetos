@@ -54,4 +54,7 @@ if (!empty($_POST['nome'])){
         $msg->error("Já existe uma pasta com esse nome!");
         header("Location: ./projeto.php");
     }
+}else{
+    $msg->error("Nome inválido!");
+    header("Location: ./projeto.php");
 }

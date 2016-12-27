@@ -14,7 +14,7 @@ foreach ($dirs as $dir){
     if (file_exists($path."index.php")) {
         $projetos[] = [
             'dir'  => rawurlencode($dir),
-            'nome' => ucwords(strtolower($dir)),
+            'nome' => $dir,
             'read' => (file_exists($path."desc.md") ? htmlspecialchars(file_get_contents($path."desc.md")) : null)
         ];
     }
@@ -65,14 +65,19 @@ usort($projetos, function($a, $b) {
     ?>
     <div class="list-group">
         <?php foreach ($projetos as $projeto): ?>
-            <a href="/<?= $projeto['dir'].'/index.php' ?>" class="list-group-item">
-                <h4 class="list-group-item-heading"><?= $projeto['nome'] ?></h4>
+            <li class="list-group-item clearfix">
+                <a href="/<?= $projeto['dir'] . '/index.php' ?>">
+                    <h4 class="list-group-item-heading">
+                        <?= $projeto['nome'] ?>
+                        <a class="btn btn-xs btn-info pull-right" href="editarprojeto.php?name=<?= $projeto['nome'] ?>">Editar</a>
+                    </h4>
+                </a>
                 <?php if ($projeto['read']): ?>
                     <p class="list-group-item-text"><?= $projeto['read'] ?></p>
                 <?php else: ?>
                     <p class="list-group-item-text">Crie um arquivo chamado 'desc.md' na pasta do projeto com a descriação dele.</p>
                 <?php endif; ?>
-            </a>
+            </li>
         <?php endforeach; ?>
     </div>
     <?php if(!count($projetos)): ?>
