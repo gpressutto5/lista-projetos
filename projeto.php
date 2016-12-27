@@ -5,7 +5,7 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 ?>
 <html>
 <head>
-    <title>Aula</title>
+    <title>Adicionar Projeto</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <style>
         html {
@@ -38,7 +38,7 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 </head>
 <body>
 <div class="container">
-    <h1>Adicionar Aula</h1>
+    <h1>Adicionar Projeto</h1>
     <?php
     $msg->display();
     ?>

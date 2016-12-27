@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://github.com/gpressutto5/lista-aulas">GitHub</a>
+                    <a href="https://github.com/gpressutto5/lista-projetos">GitHub</a>
                 </div>
             </div>
         </div>

@@ -52,6 +52,6 @@ if (!empty($_POST['nome'])){
         header("Location: ./");
     }else{
         $msg->error("Já existe uma pasta com esse nome!");
-        header("Location: ./aula.php");
+        header("Location: ./projeto.php");
     }
 }

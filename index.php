@@ -3,7 +3,7 @@ require 'vendor/autoload.php';
 if (!session_id()) @session_start();
 $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 
-$aulas = [];
+$projetos = [];
 $dirs = array_filter(glob('*'), 'is_dir');
 foreach ($dirs as $dir){
     if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
@@ -12,14 +12,14 @@ foreach ($dirs as $dir){
         $path = $_SERVER['DOCUMENT_ROOT']."/".$dir."/";
     }
     if (file_exists($path."index.php")) {
-        $aulas[] = [
+        $projetos[] = [
             'dir'  => rawurlencode($dir),
             'nome' => ucwords(strtolower($dir)),
             'read' => (file_exists($path."desc.md") ? htmlspecialchars(file_get_contents($path."desc.md")) : null)
         ];
     }
 }
-usort($aulas, function($a, $b) {
+usort($projetos, function($a, $b) {
     return strnatcmp($a['nome'], $b['nome']);
 });
 ?>
@@ -59,26 +59,26 @@ usort($aulas, function($a, $b) {
 </head>
 <body>
 <div class="container">
-    <h1>Lista de Aulas</h1>
+    <h1>Lista de Projetos</h1>
     <?php
     $msg->display();
     ?>
     <div class="list-group">
-        <?php foreach ($aulas as $aula): ?>
-            <a href="/<?= $aula['dir'].'/index.php' ?>" class="list-group-item">
-                <h4 class="list-group-item-heading"><?= $aula['nome'] ?></h4>
-                <?php if ($aula['read']): ?>
-                    <p class="list-group-item-text"><?= $aula['read'] ?></p>
+        <?php foreach ($projetos as $projeto): ?>
+            <a href="/<?= $projeto['dir'].'/index.php' ?>" class="list-group-item">
+                <h4 class="list-group-item-heading"><?= $projeto['nome'] ?></h4>
+                <?php if ($projeto['read']): ?>
+                    <p class="list-group-item-text"><?= $projeto['read'] ?></p>
                 <?php else: ?>
-                    <p class="list-group-item-text">Crie um arquivo chamado 'desc.md' na pasta da aula com a descriação dela.</p>
+                    <p class="list-group-item-text">Crie um arquivo chamado 'desc.md' na pasta do projeto com a descriação dele.</p>
                 <?php endif; ?>
             </a>
         <?php endforeach; ?>
     </div>
-    <?php if(!count($aulas)): ?>
+    <?php if(!count($projetos)): ?>
         <h1>Nenhuma aula encontrada</h1>
     <?php endif; ?>
-    <a href="aula.php" class="btn btn-primary">Criar</a>
+    <a href="projeto.php" class="btn btn-primary">Criar</a>
 </div>
 
 <footer class="footer">
