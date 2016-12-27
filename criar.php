@@ -47,7 +47,7 @@ if (!empty($_POST['nome'])){
         if (isset($_POST['descricao'])){
             $desc = $_POST['descricao'];
         }
-        createFile($path['file'], 'readme.md', $desc);
+        createFile($path['file'], 'desc.md', $desc);
         $msg->success("O projeto $nome foi criado com sucesso!");
         header("Location: ./");
     }else{

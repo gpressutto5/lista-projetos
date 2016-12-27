@@ -15,7 +15,7 @@ foreach ($dirs as $dir){
         $aulas[] = [
             'dir'  => rawurlencode($dir),
             'nome' => ucwords(strtolower($dir)),
-            'read' => (file_exists($path."readme.md") ? htmlspecialchars(file_get_contents($path."readme.md")) : null)
+            'read' => (file_exists($path."desc.md") ? htmlspecialchars(file_get_contents($path."desc.md")) : null)
         ];
     }
 }
@@ -70,7 +70,7 @@ usort($aulas, function($a, $b) {
                 <?php if ($aula['read']): ?>
                     <p class="list-group-item-text"><?= $aula['read'] ?></p>
                 <?php else: ?>
-                    <p class="list-group-item-text">Crie um arquivo chamado 'readme.md' na pasta da aula com a descriação dela.</p>
+                    <p class="list-group-item-text">Crie um arquivo chamado 'desc.md' na pasta da aula com a descriação dela.</p>
                 <?php endif; ?>
             </a>
         <?php endforeach; ?>
