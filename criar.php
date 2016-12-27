@@ -4,9 +4,13 @@ if (!session_id()) @session_start();
 $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 
 function createFile($path, $nome, $content){
-    $fp = fopen($path.$nome,"wb");
-    fwrite($fp,$content);
-    fclose($fp);
+    if (!($fp = fopen($path."/".$nome,"wb")))
+        return false;
+    if (!fwrite($fp,$content))
+        return false;
+    if (!fclose($fp))
+        return false;
+    return true;
 }
 
 if (!empty($_POST['nome'])){
@@ -15,18 +19,12 @@ if (!empty($_POST['nome'])){
 
     $path = [];
     $path['folder'] = $_SERVER['DOCUMENT_ROOT']."/".$nome;
-    $path['file'] = $path['folder'] . "/";
     $path['template'] = $_SERVER['DOCUMENT_ROOT']."/template/";
     $path['cssdir'] = $path['template']."css/";
     $path['jsdir'] = $path['template']."js/";
-    $path['newcssdir'] = $path['file']."css/";
-    $path['newjsdir'] = $path['file']."js/";
+    $path['newcssdir'] = $path['folder']."/css/";
+    $path['newjsdir'] = $path['folder']."/js/";
 
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        foreach ($path as $k => $v){
-            $path[$k] = str_replace('/', '\\', $path[$k]);
-        }
-    }
     if (!is_dir($nome)){
         mkdir($path['folder']);
 
@@ -42,12 +40,12 @@ if (!empty($_POST['nome'])){
             $content = str_replace("NomePagina", $nome, file_get_contents($path['template'] . "index.temp.php"));
         }
 
-        createFile($path['file'], 'index.php', $content);
+        createFile($path['folder'], 'index.php', $content);
         $desc = '';
         if (isset($_POST['descricao'])){
             $desc = $_POST['descricao'];
         }
-        createFile($path['file'], 'desc.md', $desc);
+        createFile($path['folder'], 'desc.md', $desc);
         $msg->success("O projeto $nome foi criado com sucesso!");
         header("Location: ./");
     }else{

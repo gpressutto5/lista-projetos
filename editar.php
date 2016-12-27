@@ -4,7 +4,7 @@ if (!session_id()) @session_start();
 $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 
 function createFile($path, $nome, $content){
-    if (!($fp = fopen($path.$nome,"wb")))
+    if (!($fp = fopen($path."/".$nome,"wb")))
         return false;
     if (!fwrite($fp,$content))
         return false;
@@ -23,19 +23,13 @@ if (!empty($_POST['nome'])) {
     $nome = str_replace(' ', '-', $nome);
     $path = [];
     $path['folder'] = $_SERVER['DOCUMENT_ROOT'] . "/" . $nome;
-    $path['file'] = $path['folder'] . "/";
     $path['oldname'] = $_SERVER['DOCUMENT_ROOT'] . "/" . $_POST['nomeoriginal'];
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        foreach ($path as $k => $v){
-            $path[$k] = str_replace('/', '\\', $path[$k]);
-        }
-    }
 
 
     if ($changeName){
         if (is_dir($nome)){
-            echo $path['file'] . "index.php";
-            if (file_exists($path['file'] . "index.php")){
+            echo $path['folder'] . "/index.php";
+            if (file_exists($path['folder'] . "/index.php")){
                 $msg->error("Já existe um projeto com esse nome!");
             }else{
                 $msg->error("Nome inválido!");
@@ -50,12 +44,12 @@ if (!empty($_POST['nome'])) {
     }
 
     if ($_POST['descricaooriginal'] !== $_POST['descricao']){
-        if (file_exists($path['file']."desc.md")){
-            if (!unlink($path['file']."desc.md")){
+        if (file_exists($path['folder']."/desc.md")){
+            if (!unlink($path['folder']."/desc.md")){
                 $msg->error("Erro ao apagar arquivo desc.md");
             }
         }
-        if (createFile($path['file'], 'desc.md', $_POST['descricao'])){
+        if (createFile($path['folder'], 'desc.md', $_POST['descricao'])){
             $checkDesc = true;
         }
     }

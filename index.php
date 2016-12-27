@@ -6,11 +6,8 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 $projetos = [];
 $dirs = array_filter(glob('*'), 'is_dir');
 foreach ($dirs as $dir){
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        $path = $_SERVER['DOCUMENT_ROOT']."\\".$dir."\\";
-    } else {
-        $path = $_SERVER['DOCUMENT_ROOT']."/".$dir."/";
-    }
+    $path = $_SERVER['DOCUMENT_ROOT']."/".$dir."/";
+
     if (file_exists($path."index.php")) {
         $projetos[] = [
             'dir'  => rawurlencode($dir),

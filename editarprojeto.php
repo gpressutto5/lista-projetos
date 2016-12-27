@@ -6,20 +6,11 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 if (isset($_GET['name'])){
     $nome = $_GET['name'];
     if (is_dir($nome)){
-        $path = [];
-        $path['folder'] = $_SERVER['DOCUMENT_ROOT']."/".$nome;
-        $path['file'] = $path['folder'] . "/";
-
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            foreach ($path as $k => $v){
-                $path[$k] = str_replace('/', '\\', $path[$k]);
-            }
-        }
-
+        $path = $_SERVER['DOCUMENT_ROOT']."/".$nome;
 
         $descricao = '';
-        if (file_exists($path['file'] . "desc.md")){
-            $descricao = htmlspecialchars(file_get_contents($path['file'] . "desc.md"));
+        if (file_exists($path . "/desc.md")){
+            $descricao = htmlspecialchars(file_get_contents($path . "/desc.md"));
         }
     }else{
         $msg->error('Não existe nenhum projeto com esse nome.');
