@@ -63,12 +63,13 @@ usort($projetos, function($a, $b) {
     <div class="list-group">
         <?php foreach ($projetos as $projeto): ?>
             <li class="list-group-item clearfix">
-                <a href="/<?= $projeto['dir'] . '/index.php' ?>">
                     <h4 class="list-group-item-heading">
-                        <?= $projeto['nome'] ?>
-                        <a class="btn btn-xs btn-info pull-right" href="editarprojeto.php?name=<?= $projeto['nome'] ?>">Editar</a>
+                        <a href="/<?= $projeto['dir'] . '/index.php' ?>"><?= $projeto['nome'] ?></a>
+                        <span class="btn-group btn-group-xs pull-right">
+                            <a class="btn btn-danger confirmation" href="delete.php?name=<?= $projeto['nome'] ?>">Apagar</a>
+                            <a class="btn btn-info"href="editarprojeto.php?name=<?= $projeto['nome'] ?>">Editar</a>
+                        </span>
                     </h4>
-                </a>
                 <?php if ($projeto['read']): ?>
                     <p class="list-group-item-text"><?= $projeto['read'] ?></p>
                 <?php else: ?>
@@ -92,5 +93,12 @@ usort($projetos, function($a, $b) {
 
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.confirmation').on('click', function () {
+            return confirm('Tem certeza que deseja apagar TODOS OS ARQUIVOS deste projeto?');
+        });
+    });
+</script>
 </body>
 </html>
