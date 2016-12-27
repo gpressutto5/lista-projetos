@@ -1,0 +1,31 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 100px;
+    background-color: #1e1e1e;
+}
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
+
+footer p{
+    margin: 20px 0;
+}
+
+@media screen and (min-width: 768px) {
+    .footer{
+        height: 60px;
+    }
+}

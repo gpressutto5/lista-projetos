@@ -24,35 +24,8 @@ usort($projetos, function($a, $b) {
 <head>
     <title>Lista de Projetos</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <style>
-        html {
-        position: relative;
-        min-height: 100%;
-        }
-        body {
-        /* Margin bottom by footer height */
-        margin-bottom: 60px;
-            background-color: #e1ffff;
-        }
-        .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        /* Set the fixed height of the footer here */
-        height: 60px;
-        background-color: #8bc0cc;
-        }
-        .container {
-            width: auto;
-            max-width: 680px;
-            padding: 0 15px;
-        }
-        h1,
-        .container .text-muted {
-            margin: 20px 0;
-            color: #4e6f79;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="container">
@@ -79,16 +52,19 @@ usort($projetos, function($a, $b) {
         <?php endforeach; ?>
     </div>
     <?php if(!count($projetos)): ?>
-        <h1>Nenhum projeto encontrada</h1>
+        <div class="panel">
+            <div class="panel-body">
+                <h4>Nenhum projeto encontrado</h4>
+                <p>Para começar, crie seu primeiro projeto clicando no botão abaixo.</p>
+            </div>
+        </div>
     <?php endif; ?>
-    <a href="projeto.php" class="btn btn-primary">Criar</a>
+    <a href="projeto.php" class="btn btn-success btn-block">Criar</a>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted">Voce está usando a versão <?= phpversion() ?> do php.</p>
-    </div>
-</footer>
+<?php
+include "footer.php";
+?>
 
 
 <script src="js/jquery-2.1.4.min.js"></script>

@@ -17,6 +17,7 @@
 !/editarprojeto.php
 !/editar.php
 !/delete.php
+!/footer.php
 
 #depois de aceitar essas pastas ignora .DS_Store(mac)
 .DS_Store

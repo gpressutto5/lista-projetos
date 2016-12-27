@@ -7,34 +7,8 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
 <head>
     <title>Adicionar Projeto</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <style>
-        html {
-            position: relative;
-            min-height: 100%;
-        }
-        body {
-            /* Margin bottom by footer height */
-            margin-bottom: 60px;
-            background-color: #e1ffff;
-        }
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            /* Set the fixed height of the footer here */
-            height: 60px;
-            background-color: #8bc0cc;
-        }
-        .container {
-            width: auto;
-            max-width: 680px;
-            padding: 0 15px;
-        }
-        .container .text-muted {
-            margin: 20px 0;
-            color: #4e6f79;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="container">
@@ -56,18 +30,16 @@ $msg = new \Plasticbrain\FlashMessages\FlashMessages();
                 <div class="checkbox">
                     <label><input type="checkbox" name="template"> Gerar template inicial</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Criar</button>
+                <button type="submit" class="btn btn-success btn-block">Criar</button>
+                <a href="/" class="btn btn-default btn-block">Voltar</a>
             </form>
-            <a href="/" class="btn btn-default">Voltar</a>
         </div>
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted">Voce está usando a versão <?= phpversion() ?> do php.</p>
-    </div>
-</footer>
+<?php
+include "footer.php";
+?>
 
 
 <script src="js/jquery-2.1.4.min.js"></script>
