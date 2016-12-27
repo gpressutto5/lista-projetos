@@ -1,4 +1,8 @@
 <?php
+require 'vendor/autoload.php';
+if (!session_id()) @session_start();
+$msg = new \Plasticbrain\FlashMessages\FlashMessages();
+
 $aulas = [];
 $dirs = array_filter(glob('*'), 'is_dir');
 foreach ($dirs as $dir){
@@ -46,6 +50,7 @@ usort($aulas, function($a, $b) {
             max-width: 680px;
             padding: 0 15px;
         }
+        h1,
         .container .text-muted {
             margin: 20px 0;
             color: #4e6f79;
@@ -55,6 +60,9 @@ usort($aulas, function($a, $b) {
 <body>
 <div class="container">
     <h1>Lista de Aulas</h1>
+    <?php
+    $msg->display();
+    ?>
     <div class="list-group">
         <?php foreach ($aulas as $aula): ?>
             <a href="/<?= $aula['dir'].'/index.php' ?>" class="list-group-item">

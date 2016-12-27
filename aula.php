@@ -1,4 +1,7 @@
 <?php
+require 'vendor/autoload.php';
+if (!session_id()) @session_start();
+$msg = new \Plasticbrain\FlashMessages\FlashMessages();
 ?>
 <html>
 <head>
@@ -36,6 +39,9 @@
 <body>
 <div class="container">
     <h1>Adicionar Aula</h1>
+    <?php
+    $msg->display();
+    ?>
     <div class="panel panel-default">
         <div class="panel-body">
             <form method="POST" action="/criar.php">

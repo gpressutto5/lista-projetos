@@ -1,0 +1,12 @@
+{
+    "name": "gpressutto5/listaaulas",
+    "authors": [
+        {
+            "name": "Guilherme Pressutto",
+            "email": "guilherme.ferruzzi@learnway.com.br"
+        }
+    ],
+    "require": {
+        "plasticbrain/php-flash-messages": "^1.0"
+    }
+}

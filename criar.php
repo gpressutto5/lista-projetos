@@ -1,4 +1,8 @@
 <?php
+require 'vendor/autoload.php';
+if (!session_id()) @session_start();
+$msg = new \Plasticbrain\FlashMessages\FlashMessages();
+
 function createFile($path, $nome, $content){
     $fp = fopen($path.$nome,"wb");
     fwrite($fp,$content);
@@ -44,8 +48,10 @@ if (!empty($_POST['nome'])){
             $desc = $_POST['descricao'];
         }
         createFile($path['file'], 'readme.md', $desc);
+        $msg->success("O projeto $nome foi criado com sucesso!");
         header("Location: ./");
     }else{
-        echo 'existe';
+        $msg->error("Já existe uma pasta com esse nome!");
+        header("Location: ./aula.php");
     }
 }

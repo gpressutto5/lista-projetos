@@ -1,5 +1,7 @@
+#ignora todos os arquivos e todas as pastas
 *
 
+#Mas aceita estes arquivos e pastas
 !/css
 !/js
 !/css/*
@@ -10,5 +12,8 @@
 !/criar.php
 !/template
 !/template/**
+!/composer.json
+!/composer.lock
 
+#depois de aceitar essas pastas ignora .DS_Store(mac)
 .DS_Store
