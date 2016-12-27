@@ -37,7 +37,7 @@ if (!empty($_POST['nome'])){
             copy($path['jsdir']."bootstrap.min.js", $path['newjsdir']."bootstrap.min.js");
             copy($path['jsdir']."jquery-3.1.1.min.js", $path['newjsdir']."jquery-3.1.1.min.js");
             copy($path['jsdir']."main.js", $path['newjsdir']."main.js");
-            $content = str_replace("NomePagina", $nome, file_get_contents($path['template'] . "index.temp.php"));
+            $content = str_replace("DataAno", date("Y"), str_replace("NomePagina", $nome, file_get_contents($path['template'] . "index.temp.php")));
         }
 
         createFile($path['folder'], 'index.php', $content);
