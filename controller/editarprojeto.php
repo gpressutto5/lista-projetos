@@ -1,8 +1,4 @@
 <?php
-require 'vendor/autoload.php';
-if (!session_id()) @session_start();
-$msg = new \Plasticbrain\FlashMessages\FlashMessages();
-
 if (isset($_GET['name'])){
     $nome = $_GET['name'];
     if (is_dir($nome)){

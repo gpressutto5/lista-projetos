@@ -1,9 +1,9 @@
 <html>
 <head>
     <title>Adicionar Projeto</title>
-    <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?php
+        include "head.php";
+    ?>
 </head>
 <body>
 <div class="container">
@@ -33,10 +33,7 @@
 
 <?php
 include "footer.php";
-?>
-
-
-<script src="public/js/jquery-2.1.4.min.js"></script>
+?>>
 <script src="public/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -24,6 +24,10 @@
 !/view/**
 !/controller
 !/controller/**
+!/core
+!/core/**
+!/bootstrap.php
+!/routes.php
 
 #depois de aceitar essas pastas ignora .DS_Store(mac)
 .DS_Store
