@@ -1,7 +1,10 @@
 <?php
 Class Router
 {
-    protected $routes = [];
+    protected $routes = [
+        'GET' => [],
+        'POST' => []
+    ];
 
     public static function load($file)
     {
