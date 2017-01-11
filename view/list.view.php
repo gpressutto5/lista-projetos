@@ -18,7 +18,7 @@
                         <a href="/<?= $projeto['dir'] . '/index.php' ?>"><?= $projeto['nome'] ?></a>
                         <span class="btn-group btn-group-xs pull-right">
                             <a class="btn btn-danger confirmation" href="delete.php?name=<?= $projeto['nome'] ?>">Apagar</a>
-                            <a class="btn btn-info"href="editarprojeto.php?name=<?= $projeto['nome'] ?>">Editar</a>
+                            <a class="btn btn-info"href="/editar/?name=<?= $projeto['nome'] ?>">Editar</a>
                         </span>
                     </h4>
                 <?php if ($projeto['read']): ?>
@@ -37,7 +37,7 @@
             </div>
         </div>
     <?php endif; ?>
-    <a href="projeto.php" class="btn btn-success btn-block">Criar</a>
+    <a href="/novo/" class="btn btn-success btn-block">Criar</a>
 </div>
 
 <?php

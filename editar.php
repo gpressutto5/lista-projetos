@@ -34,7 +34,7 @@ if (!empty($_POST['nome'])) {
             }else{
                 $msg->error("Nome inválido!");
             }
-            header("Location: ./editarprojeto.php?name=".$_POST['nomeoriginal']);
+            header("Location: ./editar/?name=".$_POST['nomeoriginal']);
             exit;
         }else{
             if (rename($path['oldname'], $path['folder'])){
@@ -67,5 +67,5 @@ if (!empty($_POST['nome'])) {
     exit;
 }else{
     $msg->error("Nome inválido!");
-    header("Location: ./editarprojeto.php?name=".$_POST['nomeoriginal']);
+    header("Location: ./editar/?name=".$_POST['nomeoriginal']);
 }
