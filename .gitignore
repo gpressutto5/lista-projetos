@@ -18,6 +18,12 @@
 !/editar.php
 !/delete.php
 !/footer.php
+!/public
+!/public/**
+!/view
+!/view/**
+!/controller
+!/controller/**
 
 #depois de aceitar essas pastas ignora .DS_Store(mac)
 .DS_Store
